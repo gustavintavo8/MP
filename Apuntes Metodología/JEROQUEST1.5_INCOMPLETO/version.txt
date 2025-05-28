@@ -1,0 +1,29 @@
+V.1.5 (4/3/2016)
+Modificado:
+- MiJLabel renombrada a MiJLabelPersonaje
+
+- Interface ElementoGrafico, añadido método:
+	/**
+	 * Muestra un icono representando el personaje como un icono en la capa 2
+	 * @param v panel gráfico donde mostrar el icono
+	 */
+	void muestra(MiPanelTablero v);
+
+- MiPanelTablero.muestraPersonajes(): En el bucle de mostrar personajes se delega Personaje.muestra() para
+  pintar el icono 
+  
+- MiPanelTablero.muestraPersonaje(): desaparece, al realizar su accion la clase Personaja
+  
+- Personaje.muestra(), de implementar ElementoGrafico:
+
+- Personaje.resuelveTurno() {
+		// Atacar a un enemigo al azar
+		accionCombatirEnemigo(partidaActual);
+		
+		// Nos movemos al azar por el tablero
+		accionMovimiento(partidaActual);
+}
+
+- Personaje.accionCombatir(Partida): accion original de combate donde se selecciona un objetivo enemigo al azar y se le ataca, devuelve cierto si consiguió atacar a un objetivo enemigo
+
+- Personaje.accionMovimiento(Partida): acción original de movimiento al azar por el tablero, devuelve el número de casillas movidas
